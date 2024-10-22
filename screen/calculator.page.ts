@@ -2,20 +2,25 @@ import { $ } from '@wdio/globals'
 
 class CalculatorPage {
 
+variableNumero: any
 
 // Mapeo de elemento con el recurso id
 // get btnNumero2 () {return $('android=new UiSelector().resourceId("com.google.android.calculator:id/digit_2")')}
 
 
 // Mapeei o elemento com accessibility id
-get btnNumero2() { return $('~2')}
+set btnNumero(numero) { this.variableNumero = $(`~${numero}`)}
+get btnNumero() { return this.variableNumero}
+
+
 get btnMais() { return $('~más')}
 get btnIgual() { return $('~igual a')}
 get lblResultadoFinal() { return $('android=new UiSelector().resourceId("com.google.android.calculator:id/result_final")')}
 
 
-    public async clicBtnNumero2 () {
-        await this.btnNumero2.click()
+    public async clicBtnNumero (numeroDesejado: string) {
+        this.btnNumero = numeroDesejado
+        await this.btnNumero.click()
         
     }
     public async clicBtnMais() {

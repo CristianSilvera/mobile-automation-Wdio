@@ -2,12 +2,13 @@ import calculatorPage from '../screen/calculator.page'
 
 describe('Calculator test', () => {
     it('Sumar 2 + 2', async () => {
+        
         // Arrange - Give
 
         const somaDoisValores = {
 
-            preimeiroValor: 2, 
-            segundoValor: 2, 
+            preimeiroValor: '2', 
+            segundoValor: '2', 
             resultado: '4'
 
         }
@@ -19,9 +20,9 @@ describe('Calculator test', () => {
         console.log("🐦❓❓❓❓❓❓❓❓❓")
 
         // Act - When
-        await calculatorPage.clicBtnNumero2()
+        await calculatorPage.clicBtnNumero(somaDoisValores.preimeiroValor)
         await calculatorPage.clicBtnMais()
-        await calculatorPage.clicBtnNumero2()
+        await calculatorPage.clicBtnNumero(somaDoisValores.segundoValor)
         await calculatorPage.clicBtnIgual()
 
 
